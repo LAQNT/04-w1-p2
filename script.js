@@ -70,23 +70,23 @@ async function fetchData (apiUrl , sectionId) {
         console.error('Error found', error);
     }
  
-    function totalAlbum () {
+    function totalSongs () {
         let uListModal = document.createElement('ul');
         let modalDiv = document.querySelector('.modal-body').appendChild(uListModal);
              
-        let totalAlbums = document.querySelectorAll('.card-title');
+        let totalSongs = document.querySelectorAll('.song-title');
         
-        for (let album of totalAlbums){
+        for (let song of totalSongs){
             let li = document.createElement('li')
 
-            li.innerText = album.innerText;
+            li.innerText = song.innerText;
             li.classList.add('text-white');
             li.classList.add('d-flex');
 
             modalDiv.appendChild(li);      
         }
     }
-    console.log(totalAlbum());
+    console.log(totalSongs());
 
 }
 
