@@ -56,7 +56,7 @@
                   <li>
                     <!-- Button trigger modal -->
                       <button type="button" class="btn btn-success my-5" data-toggle="modal" data-target="#exampleModal">
-                        Albums
+                        Songs Albums
                       </button>
 
                       <!-- Modal -->
@@ -64,7 +64,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content bg-dark">
                             <div class="modal-header">
-                              <h5 class="modal-title text-light" id="exampleModalLabel">Albums</h5>
+                              <h5 class="modal-title text-light" id="exampleModalLabel">Songs Albums</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -73,17 +73,26 @@
                               ...
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-success">Save changes</button>
+                             
+                              <button type="button" class="btn btn-success">Close</button>
                             </div>
                           </div>
                         </div>
                       </div>
                   </li>
+                  <!-- ------button total albums ------ -->
+                  <li>
+                    <div class="btn-totalAlbums d-flex align-items-center justify-content-a mb-3" >
+                      <button type="button" class="btn btn-success" onclick="totalUalbums(); this.onclick=null ">Unique albums</button>
+
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
+
+
 
           <div class="nav-btn">
             <button class="btn signup-btn" type="button">Sign Up</button>
@@ -135,7 +144,7 @@
         <div class="row mt-5">
           <div class="col-10">
             <div id="theBeatles" class="d-block">
-              <h2>Thea Beatles</h2>
+              <h2>The Beatles</h2>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3" id="theBeatlesSection">
               </div>
             </div>

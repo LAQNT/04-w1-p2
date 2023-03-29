@@ -44,11 +44,11 @@ async function fetchData (apiUrl , sectionId) {
     try {
         let response = await fetch(apiUrl);
         let data = await response.json();
+        console.log(data)
         let container = document.getElementById(sectionId);
         let repeatedAlbum = {};
         data.data.forEach ((song) => {
-            // console.log('songId',song.album.id);
-            // console.log(repeatedAlbum[song.album.id]);
+
             if (!repeatedAlbum[song.album.id]){
                 let card = `
                 <div class="col mb-4">
@@ -57,6 +57,7 @@ async function fetchData (apiUrl , sectionId) {
                 <div class="card-body">
                 <h5 class="card-title text-truncate">${song.album.title}</h5>
                 <p class="card-text text-truncate">${song.artist.name}</p>
+                <p class="song-title card-text text-truncate">${song.title}</p>
                 </div>
                 </div>
                 </div>`;
@@ -64,7 +65,7 @@ async function fetchData (apiUrl , sectionId) {
                 repeatedAlbum[song.album.id] = true;     
             }
         });
-        // console.log(repeatedAlbum);
+
     } catch (error){
         console.error('Error found', error);
     }
@@ -72,37 +73,20 @@ async function fetchData (apiUrl , sectionId) {
     function totalAlbum () {
         let uListModal = document.createElement('ul');
         let modalDiv = document.querySelector('.modal-body').appendChild(uListModal);
-        // console.log(modalDiv);
-    
-    
-        let albumListRepeat = [];
+             
         let totalAlbums = document.querySelectorAll('.card-title');
-        // console.log(totalAlbums);
-    
+        
         for (let album of totalAlbums){
             let li = document.createElement('li')
 
             li.innerText = album.innerText;
             li.classList.add('text-white');
+            li.classList.add('d-flex');
 
-            if (! albumListRepeat[li.innerText]){
-
-                modalDiv.appendChild(li);
-                albumListRepeat[li.innerText] = true
-                console.log(modalDiv)
-            }
-
-
-            
+            modalDiv.appendChild(li);      
         }
-    
-    
     }
     console.log(totalAlbum());
-
-
-
-
 
 }
 
@@ -114,4 +98,19 @@ document.addEventListener('DOMContentLoaded' , () => {
 
 
 
-// -----Album list-----
+// -----uniqueAlbums-----
+function totalUalbums() {
+    let span = document.createElement('span');
+    let div = document.querySelector('.btn-totalAlbums');
+    let divSpan = div.appendChild(span);
+
+    let totalAlbums = document.querySelectorAll('.card-title');
+
+    let uniqueAlbums = [...new Set(totalAlbums)];
+    span.innerText = uniqueAlbums.length;
+    console.log('Total unique albums: '+ uniqueAlbums.length);
+
+    span.classList.add('text-white');
+    span.classList.add('text-center');
+    span.classList.add('mx-3');   
+}
